@@ -1,0 +1,26 @@
+{
+    "author": "David P. Janes <davidjanes@davidjanes.com>",
+    "bugs": {
+        "url": "https://github.com/dpjanes/jsonxt-editor/issues"
+    }, 
+    "dependencies": {
+        "iotdb-helpers": "~3.2.3"
+    }, 
+    "description": "POP Interface for Editor", 
+    "devDependencies": {
+    }, 
+    "homepage": "https://github.com/dpjanes/jsonxt-editor",
+    "license": "Apache-2.0", 
+    "main": "index.js", 
+    "name": "jsonxt-editor", 
+    "private": false, 
+    "repository": {
+        "type": "git", 
+        "url": "https://github.com/dpjanes/jsonxt-editor"
+    }, 
+    "scripts": {
+        "cover": "nyc --reporter=html mocha --recursive", 
+        "test": "mocha --recursive --bail"
+    }, 
+    "version": "1.0.0"
+}
