@@ -25,41 +25,19 @@
 const _ = require("iotdb-helpers")
 const jsonxt_editor = require("..")
 
-/**
- */
-const edit_loop = _.promise((self, done) => {
-    const _doit = () => {
-        _.promise(self)
-            .each({
-                method: jsonxt_editor.cli.prompt,
-                inputs: "template.columns:column",
-            })
-            .make(sd => {
-                console.log("---")
-                console.log(JSON.stringify(sd.item, null, 2))
-                console.log("--")
-            })
-            .then(jsonxt_editor.cli.ask.p("OK?", [ "Save", "Cancel", "Edit" ]))
-            .make(sd => {
-                if (sd.answer === "Edit") {
-                    process.nextTick(_doit)
-                } else {
-                    done(null, self)
-                }
-            })
-            .catch(error => {
-                done(error)
-            })
-    }
-
-    _doit()
-})
-
 _.promise({
     template: require("../test/data/model.json"),
     item: {},
+    editor$cfg: {
+        translations: {
+            OK: "OK?",
+            Save: "Save",
+            Cancel: "Cancel",
+            Edit: "Edit",
+        },
+    },
 })
-    .then(edit_loop)
+    .then(jsonxt_editor.cli.loop)
     .catch(error => {
         console.log("#", _.error.message(error))
     })

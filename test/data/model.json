@@ -1,0 +1,27 @@
+{
+  "@id": "schema:Person", 
+  "@type": "rdfs:Class", 
+  "columns": [
+    {
+      "encoder": "text", 
+      "name": "Name", 
+      "path": "schema:name"
+    }, 
+    {
+      "encoder": "text", 
+      "path": "schema:description"
+    }, 
+    {
+      "encoder": "text", 
+      "path": "schema:givenName"
+    }, 
+    {
+      "encoder": "text", 
+      "path": "schema:familyName"
+    }, 
+    {
+      "encoder": "text", 
+      "path": "schema:additionalName"
+    }
+  ]
+}
